@@ -93,4 +93,5 @@ jobs:
       run: |
         chart_name=$(yq .name $CHART_DIR/Chart.yaml)
         file=$chart_name-${{ github.event.release.tag_name }}.tgz
-        helm --registry-config $RUNNER_TEMP/helm-config.json push $file oci://ghcr.io/${{ github.repository }}
+        repository=${{ github.repository }}
+        helm --registry-config $RUNNER_TEMP/helm-config.json push $file oci://ghcr.io/${repository,,}
