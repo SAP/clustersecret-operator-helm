@@ -1,5 +1,7 @@
 # ClusterSecret Operator Helm Chart
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/clustersecret-operator-helm)](https://api.reuse.software/info/github.com/SAP/clustersecret-operator-helm)
+
 ## About this project
 
 Helm chart for [https://github.com/sap/clustersecret-operator](https://github.com/sap/clustersecret-operator)
