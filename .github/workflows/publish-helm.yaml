@@ -7,13 +7,11 @@ on:
 env:
   HELM_VERSION: v3.11.3
   CHART_DIR: chart
+  REGISTRY: ghcr.io
 
 defaults:
   run:
     shell: bash
-
-env:
-  REGISTRY: ghcr.io
 
 jobs:
   publish-to-pages:
