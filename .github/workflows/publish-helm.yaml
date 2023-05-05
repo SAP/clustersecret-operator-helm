@@ -25,22 +25,28 @@ jobs:
       name: github-pages
       url: ${{ steps.publish-index.outputs.page_url }}
     runs-on: ubuntu-22.04
+
     steps:
     - uses: azure/setup-helm@v3
       with:
        version: ${{ env.HELM_VERSION }} 
+
     - name: Checkout
       uses: actions/checkout@v3
+
     - name: Checkout
       uses: actions/checkout@v3
       with:
         ref: helm-index
         path: index
+
     - name: Setup Pages
       uses: actions/configure-pages@v3
+
     - name: Create package
       run: |
         helm package --version ${{ github.event.release.tag_name }} $CHART_DIR
+
     - name: Create index
       run: |
         helm repo index --url ${{ github.server_url }}/${{ github.repository }}/releases/download/${{ github.event.release.tag_name }} --merge ./index/index.yaml .
@@ -51,6 +57,7 @@ jobs:
         git add index.yaml
         git commit -m "Release ${{ github.event.release.tag_name }}"
         git push
+
     - name: Upload package
       run: |
         upload_url="${{ github.event.release.upload_url }}"
@@ -64,10 +71,12 @@ jobs:
           -H "Content-Type: $(file -b --mime-type $file)" \
           --data-binary @$file \
           "$upload_url?name=$(basename $file)"
+
     - name: Upload index
       uses: actions/upload-pages-artifact@v1
       with:
         path: index
+
     - name: Publish index 
       id: publish-index 
       uses: actions/deploy-pages@v2
@@ -77,18 +86,23 @@ jobs:
       contents: read
       packages: write
     runs-on: ubuntu-22.04
+
     steps:
     - uses: azure/setup-helm@v3
       with:
        version: ${{ env.HELM_VERSION }} 
+
     - name: Checkout
       uses: actions/checkout@v3
+
     - name: Create package
       run: |
         helm package --version ${{ github.event.release.tag_name }} $CHART_DIR
+
     - name: Login to the OCI registry
       run: |
         helm --registry-config $RUNNER_TEMP/helm-config.json registry login ghcr.io -u ${{ github.actor }} --password-stdin <<< ${{ secrets.GITHUB_TOKEN }} 
+
     - name: Upload package
       run: |
         chart_name=$(yq .name $CHART_DIR/Chart.yaml)
