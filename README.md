@@ -4,7 +4,7 @@
 
 ## About this project
 
-Helm chart for [https://github.com/sap/clustersecret-operator](https://github.com/sap/clustersecret-operator)
+Helm chart for [https://github.com/sap/clustersecret-operator](https://github.com/sap/clustersecret-operator).
 
 ## Support, Feedback, Contributing
 
