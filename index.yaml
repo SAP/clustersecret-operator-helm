@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   clustersecret-operator:
   - apiVersion: v2
+    appVersion: v0.3.2
+    created: "2023-09-11T07:19:05.013605556Z"
+    description: A Helm chart for https://github.com/sap/clustersecret-operator
+    digest: 9b056c6fe72550c54751f08123cf2100fedbdaa64629b60cc679e1b66c218b94
+    name: clustersecret-operator
+    type: application
+    urls:
+    - https://github.com/SAP/clustersecret-operator-helm/releases/download/0.3.4/clustersecret-operator-0.3.4.tgz
+    version: 0.3.4
+  - apiVersion: v2
     appVersion: v0.3.1
     created: "2023-07-27T19:29:08.334674879Z"
     description: A Helm chart for https://github.com/sap/clustersecret-operator
@@ -41,4 +51,4 @@ entries:
     urls:
     - https://github.com/SAP/clustersecret-operator-helm/releases/download/0.3.0/clustersecret-operator-0.3.0.tgz
     version: 0.3.0
-generated: "2023-07-27T19:29:08.333619519Z"
+generated: "2023-09-11T07:19:05.012725611Z"
