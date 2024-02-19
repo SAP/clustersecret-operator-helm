@@ -3,4 +3,4 @@ name: clustersecret-operator
 description: A Helm chart for https://github.com/sap/clustersecret-operator
 type: application
 version: 0.3.18
-appVersion: v0.3.16
+appVersion: v0.3.17
